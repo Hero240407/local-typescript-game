@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Quest - The Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+</head>
+<body class="dark-mode">
+
+    <div id="game-container">
+        <header id="game-header">
+            <div class="logo-title">
+                <span>TSQ</span>
+                <h1>TypeScript Quest</h1>
+            </div>
+            <nav id="main-nav">
+            </nav>
+            <div id="user-area">
+                <span id="money-display-header">Money: $<span id="current-money-header">0</span></span>
+                <button id="theme-toggle-btn" title="Toggle light/dark mode">☀️/🌙</button>
+            </div>
+        </header>
+
+        <div id="main-layout">
+            <aside id="sidebar">
+                <section id="player-stats" class="sidebar-section">
+                    <h2>Player Stats</h2>
+                    <p>Level: <span id="current-level-sidebar">1</span></p>
+                    <div class="xp-bar-container">
+                        <div id="xp-bar">
+                            <div id="xp-bar-fill"></div>
+                        </div>
+                        <p>XP: <span id="current-xp-sidebar">0</span> / <span id="xp-to-next-level-sidebar">100</span></p>
+                    </div>
+                    <p>Balance: $<span id="current-money-sidebar">0</span></p>
+                </section>
+
+                <section id="shop" class="sidebar-section">
+                    <h2>Item Shop</h2>
+                    <div id="shop-filter-buttons" class="filter-buttons">
+                        <button id="shop-view-default-btn" class="filter-btn active">Default</button>
+                        <button id="shop-view-all-btn" class="filter-btn">View All</button>
+                    </div>
+                    <div id="shop-items-container">
+                        <p class="placeholder-text">Shop items will appear here.</p>
+                    </div>
+                </section>
+
+                <section id="side-quests" class="sidebar-section">
+                    <h2>Side Quests</h2>
+                    <div id="quest-filter-buttons" class="filter-buttons">
+                        <button id="quest-view-default-btn" class="filter-btn active">Default (Incomplete)</button>
+                        <button id="quest-view-all-incomplete-btn" class="filter-btn">All Incomplete</button>
+                        <button id="quest-view-completed-btn" class="filter-btn">Completed</button>
+                    </div>
+                    <div id="side-quests-container">
+                        <p class="placeholder-text">Available side quests.</p>
+                    </div>
+                </section>
+            </aside>
+
+            <main id="game-content">
+                <div id="welcome-screen" class="content-card">
+                    <h2>Welcome, TypeScript Adventurer!</h2>
+                    <p>Embark on a journey to master TypeScript. Solve coding challenges, earn rewards, and customize your experience. Your progress will be saved automatically in your browser.</p>
+                    <p>Ready to begin?</p>
+                    <button id="start-game-btn" class="action-button">Start Your Quest</button>
+                </div>
+
+                <div id="level-display" class="content-card hidden">
+                    <h3 id="level-title">Level Title Appears Here</h3>
+                    <div id="level-problem">Problem description will go here.</div>
+                    
+                    <div id="answer-area">
+                        <p><strong>Your Answer:</strong></p>
+                        <input type="text" id="answer-input" placeholder="Type your answer for simple questions">
+                        <div class="code-input-wrapper">
+                             <textarea id="code-answer-input" class="hidden" placeholder="Type your TypeScript code solution here..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button id="submit-answer-btn" class="action-button">Submit Answer</button>
+                    
+                    <div id="feedback-area" class="feedback"></div>
+                    
+                    <div id="level-actions">
+                        <button id="buy-hint-btn" class="secondary-button hidden">Buy Hint ($<span id="hint-cost">10</span>)</button>
+                        <div id="hint-display" class="hidden">
+                            <p><strong>Hint:</strong> <span id="hint-text"></span></p>
+                            <p>Still stuck? <a id="search-link" href="#" target="_blank" rel="noopener noreferrer">Search for help</a></p>
+                        </div>
+                        <button id="next-level-btn" class="action-button hidden">Proceed to Next Level</button>
+                    </div>
+                </div>
+
+                <div id="game-complete-screen" class="content-card hidden">
+                    <h2>Quest Mastered!</h2>
+                    <p>Congratulations! You've completed all available TypeScript challenges. Stay tuned for more levels!</p>
+                    <button id="restart-game-btn" class="action-button">Play Again</button>
+                </div>
+            </main>
+        </div> 
+
+        <footer id="game-footer">
+            <p>© <span id="current-year"></span> TypeScript Quest. Happy Coding!</p>
+        </footer>
+
+        <div id="notification-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <p id="notification-message"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
